@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { EmployeesService } from '../app/services/employees.service';
 
-import { Employees, apiREST } from '../app/interfaces/interfaces';
+import { Employees, responseApi } from '../app/interfaces/interfaces';
 @Component({
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
@@ -10,7 +10,7 @@ import { Employees, apiREST } from '../app/interfaces/interfaces';
     <h1>Prueba de trabajo populetics</h1>
     <nav>
       <a routerLink="/listing">Listado</a>
-      <a routerLink="/create">Creacion</a>
+      <a routerLink="/create-new-employeed">Creacion</a>
     </nav>
     <router-outlet></router-outlet>
   `,

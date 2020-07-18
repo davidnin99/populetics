@@ -32,15 +32,15 @@ import { EmployeesService } from '../services/employees.service';
 export class ListingEmployeeComponent implements OnInit {
   public employees: Array<Employees> = [];
 
-  constructor(private service: EmployeesService) {}
+  constructor(private employeesService: EmployeesService) {}
 
   ngOnInit(): void {
-    this.service.getEmployees().subscribe((data) => {
+    this.employeesService.getEmployees().subscribe((data) => {
       this.employees = data.data;
     });
   }
-  // TODO : Me queda hacer todo el tema del creacion, que cuando lcikc en un personaje, este aparezca su info : queda pasar bien el parametro por url
-  // y recibirlo bien, queda cargar bien el update ( una vez este esto, es bien easy peasy
+  // TODO :
+  // Hacer bien la pagina de creacion, que el ngModel funcione correctamente
   // Hacer el delete
   // hacer pagina error
   // Diseño interior

@@ -6,7 +6,7 @@ export interface Employees {
   profile_image: string;
 }
 
-export interface apiREST {
+export interface responseApi {
   status: string;
   data: Employees;
 }

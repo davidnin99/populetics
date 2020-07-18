@@ -15,7 +15,7 @@ export class EmployeesService {
 
   getEmployee(id: string): Observable<any> {
     return this.http.get(
-      `http://dummy.restapiexample.com/api/v1/employees/` + id
+      `http://dummy.restapiexample.com/api/v1/employee/` + id
     );
   }
 
