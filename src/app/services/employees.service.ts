@@ -33,7 +33,9 @@ export class EmployeesService {
     );
   }
 
-  deleteEmployees(): Observable<any> {
-    return this.http.delete('http://dummy.restapiexample.com/api/v1/delete/2');
+  deleteEmployee(id: string): Observable<any> {
+    return this.http.delete(
+      'http://dummy.restapiexample.com/api/v1/delete/' + id
+    );
   }
 }

@@ -40,9 +40,6 @@ export class ListingEmployeeComponent implements OnInit {
     });
   }
   // TODO :
-  // Hacer bien la pagina de creacion, que el ngModel funcione correctamente
-  // Hacer el delete
-  // hacer pagina error
   // Diseño interior
   // Diseño exterior
 }

@@ -7,10 +7,10 @@ import { Employees, responseApi } from '../app/interfaces/interfaces';
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
   template: `
-    <h1>Prueba de trabajo populetics</h1>
+    <h1>Prueba de trabajo Populetic</h1>
     <nav>
-      <a routerLink="/listing">Listado</a>
-      <a routerLink="/create-new-employeed">Creacion</a>
+      <a routerLink="/listing"><button>Listado</button></a>
+      <a routerLink="/create-new-employeed"><button>Creacion</button></a>
     </nav>
     <router-outlet></router-outlet>
   `,

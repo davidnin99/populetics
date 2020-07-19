@@ -1,4 +1,4 @@
-export interface Employees {
+export class Employees {
   id: string;
   employee_name: string;
   employee_salary: string;

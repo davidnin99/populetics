@@ -30,10 +30,11 @@ import { EmployeesService } from '../services/employees.service';
           [(ngModel)]="employee.employee_age"
         /><br /><br />
         <div *ngIf="isNewEmployeed()">
-          <button (click)="createEmployeed()"></button>
+          <button (click)="createEmployeed()">Crear</button>
         </div>
         <div *ngIf="!isNewEmployeed()">
-          <button (click)="updateEmployeed()"></button>
+          <button (click)="updateEmployeed()">Actualizar</button>
+          <button (click)="deleteEmployees()">Borrar</button>
         </div>
       </form>
     </div>
@@ -42,7 +43,7 @@ import { EmployeesService } from '../services/employees.service';
 })
 export class CreateEmployeeComponent implements OnInit {
   public idEmployeed: string;
-  public employee: Employees;
+  public employee: Employees = new Employees();
 
   constructor(
     private route: ActivatedRoute,
@@ -51,7 +52,6 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.idEmployeed = this.route.snapshot.paramMap.get('id');
-    console.log('this.idEmployeed', this.idEmployeed);
     this.idEmployeed ? this.getEmployeedSelected() : (this.idEmployeed = '0');
     if (this.idEmployeed !== '0') {
       this.getEmployeedSelected();
@@ -59,17 +59,38 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   getEmployeedSelected(): void {
-    this.employeesService.getEmployee(this.idEmployeed).subscribe((data) => {
-      this.employee = data.data;
-      console.log('holaola', this.employee);
-    });
+    // this.employeesService.getEmployee(this.idEmployeed).subscribe((data) => {
+    //   this.fakeEmployee = data.data;
+    // }); El endPoinjt no funciona correctamente, asi que aqui tendriamos que hacer la llamada que esta en las lineas de arriba, creo una respuesta fake
+    this.employee = {
+      id: '13',
+      employee_name: 'Sebastian',
+      employee_salary: '25.000',
+      employee_age: '23',
+      profile_image: '',
+    };
   }
 
   createEmployeed(): void {
-    console.log(this.employee, 'tjios.lemplotes');
+    this.employeesService.newEmployee(this.idEmployeed).subscribe(
+      () => window.alert('Se ha creado correctamente'),
+      (error) => console.log('error', error)
+    );
   }
 
-  updateEmployeed(): void {}
+  updateEmployeed(): void {
+    this.employeesService.updateEmployee(this.employee).subscribe(
+      () => window.alert('Se ha actualizado correctamente'),
+      (error) => console.log('error', error)
+    );
+  }
+
+  deleteEmployees(): void {
+    this.employeesService.deleteEmployee(this.idEmployeed).subscribe(
+      () => window.alert('Se han eliminado correctamente'),
+      (error) => console.log('error', error)
+    );
+  }
 
   isNewEmployeed(): boolean {
     return this.idEmployeed === '0';
