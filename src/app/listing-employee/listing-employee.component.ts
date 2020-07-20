@@ -13,6 +13,7 @@ import { EmployeesService } from '../services/employees.service';
             <th>Name</th>
             <th>Salary</th>
             <th>Age</th>
+            <th>gina</th>
           </tr>
           <tr *ngFor="let employee of employees">
             <td>
@@ -39,7 +40,4 @@ export class ListingEmployeeComponent implements OnInit {
       this.employees = data.data;
     });
   }
-  // TODO :
-  // Diseño interior
-  // Diseño exterior
 }
